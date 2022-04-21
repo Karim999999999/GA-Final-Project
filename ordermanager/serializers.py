@@ -29,6 +29,11 @@ class PopulatedOrderProposalSerializer(OrderProposalSerializer):
   order_proposal_status = OrderProposalStatusSerializer(many=True)
 
 class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ('__all__')
+
+class PopulatedOrderSerializer(OrderSerializer):
   user_id = UserSerializer()
   order_proposal_id = PopulatedOrderProposalSerializer()
   order_status = OrderStatusSerializer(many=True)

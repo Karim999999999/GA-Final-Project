@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.forms import CharField
 from jwt_auth.models import *
+from jwt_auth.models import CustomUser
 
 User = get_user_model()
 

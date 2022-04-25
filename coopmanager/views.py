@@ -12,34 +12,35 @@ from coopcreator.views import get_coop
 # view and add coop items to a coop id 
 # http//localhost:8000/api/coops/<int:pk>/items
 class CoopItemListCreate(APIView):
+  permission_classes = [IsAuthenticated]
   #View Coop Items for one Coop:
   def get(self, request, pk):
-    coop_items = self.get_item_by_coop_id(pk=pk)
-    serialized_coop_item = PopulatedCoopItemSerializer(coop_items, many = True)
+    coop_items = get_item_by_coop_id(pk=pk)
+    serialized_coop_item = PopulatedCoopItemSerializer(coop_items, many=True)
     return Response(data=serialized_coop_item.data, status=status.HTTP_200_OK)
   #Create Coop Item for a coop:
   def post(self, request, pk):
-    coop = self.get_coop(pk=pk)
-    if coop.owner == request.user.id:
+    coop = get_coop(pk=pk)
+    if coop.owner.id == request.user.id:
       request.data['coop_id'] = pk
       coop_item_serializer = CoopItemSerializer(data=request.data)
       if coop_item_serializer.is_valid():
         coop_item_serializer.save()
         return Response(data=coop_item_serializer.data, status=status.HTTP_201_CREATED)
       return Response(data=coop_item_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    return Response(data=f'User {request.user.id} is the owner of the coop', status=403)
+    return Response(data=f'User {request.user.id} is not the owner of the coop', status=403)
 
 # change, detail view and delete a coop item tied to a specific coop id
 # http//localhost:8000/api/coops/items/<int:pk>/
 class CoopItemEditViewDelete(APIView):
   #View Coop Item:  
   def get(self, request, pk):
-    coop_item = self.get_item_by_id(pk=pk)
+    coop_item = get_item_by_id(pk=pk)
     serialized_coop_item = PopulatedCoopItemSerializer(coop_item)
     return Response(data=serialized_coop_item.data, status=status.HTTP_200_OK)
   #Edit Coop Item:
   def put(self, request, pk):
-    item_to_update = self.get_item_by_id(pk=pk)
+    item_to_update = get_item_by_id(pk=pk)
     updated_item = PopulatedCoopItemSerializer(item_to_update, data=request.data)
     if updated_item.is_valid():
         updated_item.save()
@@ -47,7 +48,7 @@ class CoopItemEditViewDelete(APIView):
     return Response(data=updated_item.errors, status=status.HTTP_400_BAD_REQUEST)
   #Delete Coop Item:
   def delete(self, request, pk):
-      coop_item_to_delete = self.get_item_by_id(pk=pk)
+      coop_item_to_delete = get_item_by_id(pk=pk)
       coop_item_to_delete.delete()
       return Response(status=status.HTTP_204_NO_CONTENT)
 
@@ -56,7 +57,7 @@ class CoopItemEditViewDelete(APIView):
 class CoopItemPriceBracketListCreate(APIView):
   #View Coop Items Price Bracket List:
   def get(self, request, pk):
-    price_brackets= self.get_price_brackets_by_item_id(pk=pk)
+    price_brackets= get_price_brackets_by_item_id(pk=pk)
     serialized_price_bracket = PriceBracketSerializer(price_brackets, many = True)
     return Response(data=serialized_price_bracket.data, status=status.HTTP_200_OK)
   #Create Coop Items Price Bracket:
@@ -73,12 +74,12 @@ class CoopItemPriceBracketListCreate(APIView):
 class CoopItemPriceBracketEditViewDelete(APIView):
   #View Single Coop Item Price Bracket List:
   def get(self, request, pk):
-    price_bracket = self.get_price_bracket_by_id(pk=pk)
+    price_bracket = get_price_bracket_by_id(pk=pk)
     serialized_price_bracket = PriceBracketSerializer(price_bracket)
     return Response(data=serialized_price_bracket.data, status=status.HTTP_200_OK)
   #Edit Coop Item Price Bracket:
   def put(self, request, pk):
-    price_bracket_to_update = self.get_price_bracket_by_id(pk=pk)
+    price_bracket_to_update = get_price_bracket_by_id(pk=pk)
     updated_price_bracket = PriceBracketSerializer(price_bracket_to_update, data=request.data)
     if updated_price_bracket.is_valid():
         updated_price_bracket.save()
@@ -86,17 +87,28 @@ class CoopItemPriceBracketEditViewDelete(APIView):
     return Response(data=updated_price_bracket.errors, status=status.HTTP_400_BAD_REQUEST)
   #Delete Coop Item Price Bracket:
   def delete(self, request, pk):
-      price_bracket_to_delete = self.get_price_bracket_by_id(pk=pk)
+      price_bracket_to_delete = get_price_bracket_by_id(pk=pk)
       price_bracket_to_delete.delete()
       return Response(status=status.HTTP_204_NO_CONTENT)
 
+class GetQuantityUnits(APIView):
+  def get(self, request):
+    quantity_units = QuantityUnit.objects.all()
+    serialized_quantity_units = QuantityUnitSerializer(quantity_units, many=True)
+    return Response(data=serialized_quantity_units.data, status=status.HTTP_200_OK)
+class GetItemTypes(APIView):
+  def get(self, request):
+    item_types = ItemType.objects.all()
+    serialized_item_types = ItemTypeSerializer(item_types, many=True)
+    return Response(data=serialized_item_types.data, status=status.HTTP_200_OK)
+
   #internal functions:
-def get_item_by_coop_id(self, pk):
+def get_item_by_coop_id(pk):
     try:
-      return CoopItem.objects.get(coop_id=pk)
+      return CoopItem.objects.filter(coop_id=pk)
     except CoopItem.DoesNotExist:
-      raise NotFound(detail="Can't find that Coop Item")
-def get_item_by_id(self, pk):
+      raise NotFound(detail="This Coop has no items yet")
+def get_item_by_id(pk):
     try:
       return CoopItem.objects.get(pk=pk)
     except CoopItem.DoesNotExist:

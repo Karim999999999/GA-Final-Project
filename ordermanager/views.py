@@ -14,12 +14,12 @@ from coopcreator.views import get_coop
 class OrderProposalsListCreate(APIView):
   #View List of All of One Coops Order Proposals:
   def get(self, request, pk):
-    coop_order_proposals = self.get_order_proposal_by_coop_id(pk=pk)
+    coop_order_proposals = get_order_proposal_by_coop_id(pk=pk)
     serialized_coop_order_proposal = PopulatedOrderProposalSerializer(coop_order_proposals, many = True)
     return Response(data=serialized_coop_order_proposal.data, status=status.HTTP_200_OK)
   #Create New Order for Order Proposal For Coop:
   def post(self, request, pk):
-    coop = self.get_coop(pk=pk)
+    coop = get_coop(pk=pk)
     if coop.owner == request.user.id:
       request.data['coop_id'] = pk
       serialized_coop_order_proposal = OrderProposalSerializer(data=request.data)
@@ -34,12 +34,12 @@ class OrderProposalsListCreate(APIView):
 class OrderProposalViewEditDelete(APIView):
   #View Details of Single Order Proposal:
   def get(self, request, pk):
-    order_proposal = self.get_order_proposal_by_id(pk=pk)
+    order_proposal = get_order_proposal_by_id(pk=pk)
     serialized_order_proposal = PopulatedOrderProposalSerializer(order_proposal)
     return Response(data=serialized_order_proposal.data, status=status.HTTP_200_OK)
   #Edit Details of Single Order Proposal:
   def put(self, request, pk):
-    order_proposals_to_update = self.get_order_proposal_by_id(pk=pk)
+    order_proposals_to_update = get_order_proposal_by_id(pk=pk)
     updated_item = OrderProposalSerializer(order_proposals_to_update, data=request.data)
     if updated_item.is_valid():
         updated_item.save()
@@ -47,7 +47,7 @@ class OrderProposalViewEditDelete(APIView):
     return Response(data=updated_item.errors, status=status.HTTP_400_BAD_REQUEST)
   #Delete Single Order Proposal:
   def delete(self, request, pk):
-    order_proposal_to_delete = self.get_order_proposal_by_id(pk=pk)
+    order_proposal_to_delete = get_order_proposal_by_id(pk=pk)
     order_proposal_to_delete.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
 
@@ -56,7 +56,7 @@ class OrderProposalViewEditDelete(APIView):
 class OrdersListCreate(APIView):
   #View List of All Orders of One Coops Order Proposals:
   def get(self, request, pk):
-    orders = self.get_order_by_order_proposal_id(pk=pk)
+    orders = get_order_by_order_proposal_id(pk=pk)
     serialized_order = PopulatedOrderSerializer(orders, many = True)
     return Response(data=serialized_order.data, status=status.HTTP_200_OK)
   #Create Order Proposal For Coop
@@ -74,12 +74,12 @@ class OrdersListCreate(APIView):
 class OrderViewEditDelete(APIView):
   #View Details of Single Order:
   def get(self, request, pk):
-    order = self.get_order_by_id(pk=pk)
+    order = get_order_by_id(pk=pk)
     serialized_order = PopulatedOrderSerializer(order)
     return Response(data=serialized_order.data, status=status.HTTP_200_OK)
   #Edit Details of Single Order:
   def put(self, request, pk):
-    order_to_update = self.get_order_by_id(pk=pk)
+    order_to_update = get_order_by_id(pk=pk)
     updated_item = OrderSerializer(order_to_update, data=request.data)
     if updated_item.is_valid():
         updated_item.save()
@@ -87,7 +87,7 @@ class OrderViewEditDelete(APIView):
     return Response(data=updated_item.errors, status=status.HTTP_400_BAD_REQUEST)
   #Delete Single Order:
   def delete(self, request, pk):
-    order_to_delete = self.get_order_by_id(pk=pk)
+    order_to_delete = get_order_by_id(pk=pk)
     order_to_delete.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
 

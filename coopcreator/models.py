@@ -27,17 +27,17 @@ class OperationalCity(models.Model):
       return self.city_name
 
 class Coop(models.Model):
-  coop_name = models.CharField(max_length=200)
-  coop_description = models.TextField()
+  coop_name = models.CharField(max_length=200, null=True)
+  coop_description = models.TextField(null=True)
   address_1 = models.CharField(max_length=200, null= True)
   address_2 = models.CharField(max_length=200, null= True)
   city = models.ForeignKey(OperationalCity, related_name='coop', on_delete=models.CASCADE, null=True)
-  postcode = models.CharField(max_length=9)
+  postcode = models.CharField(max_length=9, null=True)
   management_fee = models.IntegerField(null= True)
   bring_your_own_bag = models.BooleanField(default= True)
-  owner = models.ForeignKey(User, related_name='owned_coop', on_delete=models.CASCADE)
-  coop_tag = models.ManyToManyField(CoopTag, related_name='coop', blank=False)
-  coop_members = models.ManyToManyField(CustomUser, related_name='joined_coop')
+  owner = models.ForeignKey(User, related_name='owned_coop', on_delete=models.CASCADE, null=True)
+  coop_tag = models.ManyToManyField(CoopTag, related_name='coop', blank=False, null=True)
+  coop_members = models.ManyToManyField(CustomUser, related_name='joined_coop', null=True)
   purchase_frequency_option = models.ForeignKey(PurchaseFrequencyOption, related_name='coop', null=True, on_delete=models.CASCADE)
   def __str__(self):
       return self.coop_name  

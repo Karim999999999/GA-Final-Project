@@ -26,13 +26,12 @@ class CoopsCreateList(APIView):
 
       # Return the serialized authors with a HTTP 200 status code
       return Response(data=serialized_coops.data, status=status.HTTP_200_OK)
-  permission_classes = [IsAuthenticated, ]
   #create new Coops
   def post(self, request):
-
     request.data['owner'] = request.user.id
+    request.data['coop_members'] = [ request.user.id ]
     
-    coop_serializer = PopulatedCoopSerializerNoMembers(data=request.data)
+    coop_serializer = CoopSerializer(data=request.data)
 
 
     if coop_serializer.is_valid():
@@ -41,7 +40,7 @@ class CoopsCreateList(APIView):
 
       return Response(data=coop_serializer.data, status=status.HTTP_201_CREATED)
     
-      return Response(data=coop_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    return Response(data=coop_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # view, edit and delete coop by Id
 # http//localhost:8000/api/coops/<int:pk>/
@@ -50,22 +49,24 @@ class CoopsViewEditDelte(APIView):
   def get(self, request, pk):
 
       # Call the get_author function which will either get the author or raise a HTTP 404 status code response if not present
-      coop = self.get_coop(pk=pk)
+      coop = get_coop(pk=pk)
 
       # Create a new serializer with the current author data - we're only returning one author so we don't need the many=True flag
       serialized_coop = PopulatedCoopSerializerWithMembers(coop)
-
       # Return the serialized author data and a HTTP 200 response
       return Response(data=serialized_coop.data, status=status.HTTP_200_OK)  
   #edit coop
-  def post(self, request, pk):
+  def put(self, request, pk):
     
         # Call the get_author function which will either get the author or raise a HTTP 404 status code response if not present
-        coop_to_update = self.get_coop(pk=pk)
+      coop = get_coop(pk=pk)  
+      print(coop.owner.id, request.user.id)
+      if str(coop.owner.id) == str(request.user.id):
+        coop_to_update = get_coop(pk=pk)
 
         # Create a new serializer with the current author data and apply the changes from the incoming request data (updated author)
         # We specify the key `data` because we aren't adhering to the order of the arguments, same as `pk=pk` and `many=True`
-        updated_coop = PopulatedCoopSerializerWithMembers(coop_to_update, data=request.data)
+        updated_coop = CoopSerializer(coop_to_update, data=request.data)
 
         # Check whether the updates are valid
         if updated_coop.is_valid():
@@ -78,10 +79,12 @@ class CoopsViewEditDelte(APIView):
 
         # Incoming update is not valid so return a HTTP 400 bad request response
         return Response(data=updated_coop.errors, status=status.HTTP_400_BAD_REQUEST)
+      return Response(data=f'User {request.user.id} is not the owner of the coop', status=403)
+
   #delete coop
   def delete(self, request, pk):
     # Call the get_author function which will either get the author or raise a HTTP 404 status code response if not present
-        coop_to_delete = self.get_coop(pk=pk)
+        coop_to_delete = get_coop(pk=pk)
 
         # Delete the author record
         coop_to_delete.delete()
@@ -90,7 +93,7 @@ class CoopsViewEditDelte(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)  
   
 #internal function
-def get_coop(self, pk):
+def get_coop(pk):
 
         # Use a `try` here so if the code within it throws an exception it will be caught in the `except` block and handled rather than returning a HTTP 500 server error response code
         try:
@@ -110,3 +113,33 @@ def get_coop(self, pk):
             # Raising an exception is when you're indicating a specific behaviour or outcome like NotFound
             # Returning an exception is for something generic like Response above
             raise NotFound(detail="Can't find that Coop")
+
+class GetCoopsByUserId(APIView):
+  permission_classes = [IsAuthenticated]
+  def get(self, request, token):
+    users_coops = Coop.objects.filter(owner__icontains={token.user.id})
+    serialized_users_coops = PopulatedCoopSerializerNoMembers(users_coops)
+    return Response(data=serialized_users_coops.data, status=status.HTTP_200_OK)
+
+class GetCoopTags(APIView):
+
+  def get(self, request):
+    coop_tags = CoopTag.objects.all()
+
+      # Serialize the authors to JSON by using an AuthorSerializer with the many=True flag
+    serialized_coop_tags = CoopTagSerializer(coop_tags, many=True)
+
+      # Return the serialized authors with a HTTP 200 status code
+    return Response(data=serialized_coop_tags.data, status=status.HTTP_200_OK)
+
+class GetOperationalCities(APIView):
+  def get(self, request):
+    operational_cities = OperationalCity.objects.all()
+    serialized_operational_cities = OperationalCitySerializer(operational_cities, many = True)
+    return Response(data=serialized_operational_cities.data, status=status.HTTP_200_OK)
+
+class GetPurchaseOptions(APIView):
+  def get(self, request):
+    purchase_options = PurchaseFrequencyOption.objects.all()
+    serialized_purchase_options = PurchaseFrequencySerializer(purchase_options, many = True)
+    return Response(data=serialized_purchase_options.data, status=status.HTTP_200_OK)

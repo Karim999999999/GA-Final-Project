@@ -10,4 +10,6 @@ urlpatterns = [
   path('coops/items/<int:pk>/price_bracket/', CoopItemPriceBracketListCreate.as_view()),
 # delete, and edit a price bracket for a coop item  by coop item id
   path('coops/items/price_bracket/<int:pk>/', CoopItemPriceBracketEditViewDelete.as_view()),
+  path('quantity_units/', GetQuantityUnits.as_view()),
+  path('coop_item_types/', GetItemTypes.as_view()),
 ]

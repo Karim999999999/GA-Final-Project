@@ -26,8 +26,8 @@ class CoopSerializer(serializers.ModelSerializer):
 class PopulatedCoopSerializerNoMembers(CoopSerializer):
   city = OperationalCitySerializer()
   owner = UserSerializer()
-  coop_tag = CoopTagSerializer()
-  purchase_frequency_options = PurchaseFrequencySerializer()
+  coop_tag = CoopTagSerializer(many=True)
+  purchase_frequency_option = PurchaseFrequencySerializer()
 
 class PopulatedCoopSerializerWithMembers(PopulatedCoopSerializerNoMembers):
   coop_members = UserSerializer(many=True)

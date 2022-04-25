@@ -3,6 +3,9 @@ from django.contrib.auth import get_user_model
 import django.contrib.auth.password_validation as validations
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
+from jwt_auth.models import CustomUser
+# from ..coopcreator.serializers.common import OperationalCitySerializer
+
 User = get_user_model()
 
 
@@ -31,3 +34,8 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('username', 'email', 'password', 'password_confirmation', 'image',)
+
+class PrePopulatedUserSeriailzer(serializers.ModelSerializer):
+  class Meta:
+    model = CustomUser
+    fields = ('__all__')

@@ -1,0 +1,253 @@
+[
+{
+  "model": "coopmanager.itemtype",
+  "pk": 1,
+  "fields": {
+    "item_type": "Food",
+    "item_description": "eeating stuff"
+  }
+},
+{
+  "model": "coopmanager.quantityunit",
+  "pk": 1,
+  "fields": {
+    "quantity_unit_full": "Killograms",
+    "quantity_unit_shorthand": "Kgs",
+    "quantity_unit_description": "1000 grams"
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 1,
+  "fields": {
+    "coop_id": 11,
+    "item_name": "Toilet Roll",
+    "item_type": 1,
+    "item_description": "10/10 toilet roll",
+    "minimum_purchase_amount": 3,
+    "item_url": "www.w.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 2,
+  "fields": {
+    "coop_id": 13,
+    "item_name": "Toilet Roll",
+    "item_type": 1,
+    "item_description": "10/10 toilet roll",
+    "minimum_purchase_amount": 3,
+    "item_url": "www.w.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 3,
+  "fields": {
+    "coop_id": 13,
+    "item_name": "Toilet Roll",
+    "item_type": 1,
+    "item_description": "10/10 toilet roll",
+    "minimum_purchase_amount": 3,
+    "item_url": "www.w.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 4,
+  "fields": {
+    "coop_id": 13,
+    "item_name": "Toilet Roll",
+    "item_type": 1,
+    "item_description": "10/10 toilet roll",
+    "minimum_purchase_amount": 3,
+    "item_url": "www.w.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 5,
+  "fields": {
+    "coop_id": 13,
+    "item_name": "Toilet Roll",
+    "item_type": 1,
+    "item_description": "10/10 toilet roll",
+    "minimum_purchase_amount": 3,
+    "item_url": "www.w.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 6,
+  "fields": {
+    "coop_id": 13,
+    "item_name": "Toilet Roll",
+    "item_type": 1,
+    "item_description": "10/10 toilet roll",
+    "minimum_purchase_amount": 3,
+    "item_url": "www.w.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 7,
+  "fields": {
+    "coop_id": 13,
+    "item_name": "Toilet Roll",
+    "item_type": 1,
+    "item_description": "10/10 toilet roll",
+    "minimum_purchase_amount": 3,
+    "item_url": "www.w.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 8,
+  "fields": {
+    "coop_id": 13,
+    "item_name": "Toilet Roll",
+    "item_type": 1,
+    "item_description": "10/10 toilet roll",
+    "minimum_purchase_amount": 3,
+    "item_url": "www.w.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 9,
+  "fields": {
+    "coop_id": 4,
+    "item_name": "wefweewfew",
+    "item_type": 1,
+    "item_description": "ewfewewfew",
+    "minimum_purchase_amount": 1,
+    "item_url": "https://wefjn.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 10,
+  "fields": {
+    "coop_id": 4,
+    "item_name": "wefweewfew",
+    "item_type": 1,
+    "item_description": "ewfewewfew",
+    "minimum_purchase_amount": 1,
+    "item_url": "https://wefjn.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 11,
+  "fields": {
+    "coop_id": 13,
+    "item_name": "Toilet Roll",
+    "item_type": 1,
+    "item_description": "10/10 toilet roll",
+    "minimum_purchase_amount": 3,
+    "item_url": "www.w.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 12,
+  "fields": {
+    "coop_id": 13,
+    "item_name": "Toilet Roll",
+    "item_type": 1,
+    "item_description": "10/10 toilet roll",
+    "minimum_purchase_amount": 3,
+    "item_url": "www.w.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 13,
+  "fields": {
+    "coop_id": 3,
+    "item_name": "wwdw",
+    "item_type": 1,
+    "item_description": "wdwfwdwf",
+    "minimum_purchase_amount": 3,
+    "item_url": "https://www.wwsd.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 14,
+  "fields": {
+    "coop_id": 3,
+    "item_name": "wwdw",
+    "item_type": 1,
+    "item_description": "wdwfwdwf",
+    "minimum_purchase_amount": 3,
+    "item_url": "https://www.wwsd.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 15,
+  "fields": {
+    "coop_id": 13,
+    "item_name": "CocO",
+    "item_type": 1,
+    "item_description": "ewjoiewoiwew",
+    "minimum_purchase_amount": 3,
+    "item_url": "https://wjknewkn.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 16,
+  "fields": {
+    "coop_id": 13,
+    "item_name": "CocO",
+    "item_type": 1,
+    "item_description": "ewjoiewoiwew",
+    "minimum_purchase_amount": 3,
+    "item_url": "https://wjknewkn.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 17,
+  "fields": {
+    "coop_id": 15,
+    "item_name": "Toilet Roll",
+    "item_type": 1,
+    "item_description": "10/10 toilet roll",
+    "minimum_purchase_amount": 3,
+    "item_url": "www.w.com",
+    "quantity_units": 1
+  }
+},
+{
+  "model": "coopmanager.coopitem",
+  "pk": 18,
+  "fields": {
+    "coop_id": 15,
+    "item_name": "Toilet Roll",
+    "item_type": 1,
+    "item_description": "10/10 toilet roll",
+    "minimum_purchase_amount": 3,
+    "item_url": "www.w.com",
+    "quantity_units": 1
+  }
+}
+]

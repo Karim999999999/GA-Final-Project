@@ -1,0 +1,66 @@
+[
+{
+  "model": "ordermanager.orderproposalstatus",
+  "pk": 1,
+  "fields": {
+    "status": "NEW",
+    "status_description": "NEW ORDER PROPOSAL"
+  }
+},
+{
+  "model": "ordermanager.orderproposalstatus",
+  "pk": 2,
+  "fields": {
+    "status": "DEADLINE APPROACHING",
+    "status_description": "a few days till the deadline"
+  }
+},
+{
+  "model": "ordermanager.orderproposalstatus",
+  "pk": 3,
+  "fields": {
+    "status": "deadline",
+    "status_description": "you can no longer order this"
+  }
+},
+{
+  "model": "ordermanager.orderproposalstatus",
+  "pk": 4,
+  "fields": {
+    "status": "Packaging",
+    "status_description": "items have been received and are being packaged"
+  }
+},
+{
+  "model": "ordermanager.orderproposalstatus",
+  "pk": 5,
+  "fields": {
+    "status": "Collection",
+    "status_description": "Items are ready for collection"
+  }
+},
+{
+  "model": "ordermanager.orderproposalstatus",
+  "pk": 6,
+  "fields": {
+    "status": "completed",
+    "status_description": "This is all wrapped up"
+  }
+},
+{
+  "model": "ordermanager.orderstatus",
+  "pk": 1,
+  "fields": {
+    "status": "New Order",
+    "status_description": "new order is made"
+  }
+},
+{
+  "model": "ordermanager.orderstatus",
+  "pk": 2,
+  "fields": {
+    "status": "items collected",
+    "status_description": "items have been collected by the user"
+  }
+}
+]

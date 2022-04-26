@@ -1,0 +1,403 @@
+[
+{
+  "model": "coopcreator.cooptag",
+  "pk": 1,
+  "fields": {
+    "tag_name": "Women",
+    "tag_description": "All things for women"
+  }
+},
+{
+  "model": "coopcreator.cooptag",
+  "pk": 2,
+  "fields": {
+    "tag_name": "Parents",
+    "tag_description": "All things for parents"
+  }
+},
+{
+  "model": "coopcreator.cooptag",
+  "pk": 3,
+  "fields": {
+    "tag_name": "Babies, Infants and Todlers",
+    "tag_description": "All things for babies, infants and todlers"
+  }
+},
+{
+  "model": "coopcreator.cooptag",
+  "pk": 4,
+  "fields": {
+    "tag_name": "Non Perishable Foods",
+    "tag_description": "Non Perishable Foods"
+  }
+},
+{
+  "model": "coopcreator.cooptag",
+  "pk": 5,
+  "fields": {
+    "tag_name": "Toiletries",
+    "tag_description": "All things Toiletries"
+  }
+},
+{
+  "model": "coopcreator.purchasefrequencyoption",
+  "pk": 1,
+  "fields": {
+    "option_name": "Daily",
+    "length_days": 1,
+    "opition_description": "Every Day"
+  }
+},
+{
+  "model": "coopcreator.purchasefrequencyoption",
+  "pk": 2,
+  "fields": {
+    "option_name": "Weekly",
+    "length_days": 7,
+    "opition_description": "Every 7 Days"
+  }
+},
+{
+  "model": "coopcreator.purchasefrequencyoption",
+  "pk": 3,
+  "fields": {
+    "option_name": "BiMonthly",
+    "length_days": 12,
+    "opition_description": "Every 2 Weeks"
+  }
+},
+{
+  "model": "coopcreator.purchasefrequencyoption",
+  "pk": 4,
+  "fields": {
+    "option_name": "Monthly",
+    "length_days": 30,
+    "opition_description": "Every 30 Days"
+  }
+},
+{
+  "model": "coopcreator.operationalcity",
+  "pk": 1,
+  "fields": {
+    "city_name": "London"
+  }
+},
+{
+  "model": "coopcreator.coop",
+  "pk": 1,
+  "fields": {
+    "coop_name": "Hamaza's",
+    "coop_description": "A coop which prides it self in serving Hamza's, this one of a kind establishment is here to get you all you hamza needs. Stat.",
+    "address_1": "Tranton Road",
+    "address_2": "Bermondsey",
+    "city": 1,
+    "postcode": "SE16 4AH",
+    "management_fee": 3,
+    "bring_your_own_bag": true,
+    "owner": 4,
+    "purchase_frequency_option": 2,
+    "coop_tag": [
+      1,
+      2
+    ],
+    "coop_members": [
+      4
+    ]
+  }
+},
+{
+  "model": "coopcreator.coop",
+  "pk": 2,
+  "fields": {
+    "coop_name": "Hamaza's",
+    "coop_description": "A coop which prides it self in serving Hamza's, this one of a kind establishment is here to get you all you hamza needs. Stat.",
+    "address_1": "Tranton Road",
+    "address_2": "Bermondsey",
+    "city": 1,
+    "postcode": "SE16 4AH",
+    "management_fee": 3,
+    "bring_your_own_bag": true,
+    "owner": 4,
+    "purchase_frequency_option": 2,
+    "coop_tag": [
+      1,
+      2
+    ],
+    "coop_members": [
+      4
+    ]
+  }
+},
+{
+  "model": "coopcreator.coop",
+  "pk": 3,
+  "fields": {
+    "coop_name": "Hamaza's",
+    "coop_description": "A coop which prides it self in serving Hamza's, this one of a kind establishment is here to get you all you hamza needs. Stat.",
+    "address_1": "Tranton Road",
+    "address_2": "Bermondsey",
+    "city": 1,
+    "postcode": "SE16 4AH",
+    "management_fee": 3,
+    "bring_your_own_bag": true,
+    "owner": 4,
+    "purchase_frequency_option": 2,
+    "coop_tag": [
+      1,
+      2
+    ],
+    "coop_members": [
+      4
+    ]
+  }
+},
+{
+  "model": "coopcreator.coop",
+  "pk": 4,
+  "fields": {
+    "coop_name": "Hamaza's",
+    "coop_description": "A coop which prides it self in serving Hamza's, this one of a kind establishment is here to get you all you hamza needs. Stat.",
+    "address_1": "Tranton Road",
+    "address_2": "Bermondsey",
+    "city": 1,
+    "postcode": "SE16 4AH",
+    "management_fee": 3,
+    "bring_your_own_bag": true,
+    "owner": 4,
+    "purchase_frequency_option": 2,
+    "coop_tag": [
+      1,
+      2
+    ],
+    "coop_members": [
+      4
+    ]
+  }
+},
+{
+  "model": "coopcreator.coop",
+  "pk": 5,
+  "fields": {
+    "coop_name": "Hamaza's",
+    "coop_description": "A coop which prides it self in serving Hamza's, this one of a kind establishment is here to get you all you hamza needs. Stat.",
+    "address_1": "Tranton Road",
+    "address_2": "Bermondsey",
+    "city": 1,
+    "postcode": "SE16 4AH",
+    "management_fee": 3,
+    "bring_your_own_bag": true,
+    "owner": 4,
+    "purchase_frequency_option": 2,
+    "coop_tag": [
+      1,
+      2
+    ],
+    "coop_members": [
+      4
+    ]
+  }
+},
+{
+  "model": "coopcreator.coop",
+  "pk": 6,
+  "fields": {
+    "coop_name": "Hamaza's",
+    "coop_description": "A coop which prides it self in serving Hamza's, this one of a kind establishment is here to get you all you hamza needs. Stat.",
+    "address_1": "Tranton Road",
+    "address_2": "Bermondsey",
+    "city": 1,
+    "postcode": "SE16 4AH",
+    "management_fee": 3,
+    "bring_your_own_bag": true,
+    "owner": 4,
+    "purchase_frequency_option": 2,
+    "coop_tag": [
+      1,
+      2
+    ],
+    "coop_members": [
+      4
+    ]
+  }
+},
+{
+  "model": "coopcreator.coop",
+  "pk": 7,
+  "fields": {
+    "coop_name": "Hamaza's",
+    "coop_description": "A coop which prides it self in serving Hamza's, this one of a kind establishment is here to get you all you hamza needs. Stat.",
+    "address_1": "Tranton Road",
+    "address_2": "Bermondsey",
+    "city": 1,
+    "postcode": "SE16 4AH",
+    "management_fee": 3,
+    "bring_your_own_bag": true,
+    "owner": 4,
+    "purchase_frequency_option": 2,
+    "coop_tag": [
+      1,
+      2
+    ],
+    "coop_members": [
+      4
+    ]
+  }
+},
+{
+  "model": "coopcreator.coop",
+  "pk": 8,
+  "fields": {
+    "coop_name": "Hamaza's",
+    "coop_description": "A coop which prides it self in serving Hamza's, this one of a kind establishment is here to get you all you hamza needs. Stat.",
+    "address_1": "Tranton Road",
+    "address_2": "Bermondsey",
+    "city": 1,
+    "postcode": "SE16 4AH",
+    "management_fee": 3,
+    "bring_your_own_bag": true,
+    "owner": 4,
+    "purchase_frequency_option": 2,
+    "coop_tag": [
+      1,
+      2
+    ],
+    "coop_members": [
+      4
+    ]
+  }
+},
+{
+  "model": "coopcreator.coop",
+  "pk": 10,
+  "fields": {
+    "coop_name": "Kemos",
+    "coop_description": "A coop which prides it self in serving Hamza's, this one of a kind establishment is here to get you all you hamza needs. Stat.",
+    "address_1": "Tranton Road",
+    "address_2": "Bermondsey",
+    "city": 1,
+    "postcode": "SE16 4AH",
+    "management_fee": 3,
+    "bring_your_own_bag": true,
+    "owner": 4,
+    "purchase_frequency_option": 2,
+    "coop_tag": [
+      1,
+      2
+    ],
+    "coop_members": [
+      4
+    ]
+  }
+},
+{
+  "model": "coopcreator.coop",
+  "pk": 11,
+  "fields": {
+    "coop_name": "Kemos 2",
+    "coop_description": "A coop which prides it self in serving Hamza's, this one of a kind establishment is here to get you all you hamza needs. Stat.",
+    "address_1": "Tranton Road",
+    "address_2": "Bermondsey",
+    "city": 1,
+    "postcode": "SE16 4AH",
+    "management_fee": 3,
+    "bring_your_own_bag": true,
+    "owner": 4,
+    "purchase_frequency_option": 2,
+    "coop_tag": [
+      1,
+      2
+    ],
+    "coop_members": [
+      4
+    ]
+  }
+},
+{
+  "model": "coopcreator.coop",
+  "pk": 12,
+  "fields": {
+    "coop_name": "Kemos 2",
+    "coop_description": "A coop which prides it self in serving Hamza's, this one of a kind establishment is here to get you all you hamza needs. Stat.",
+    "address_1": "Tranton Road",
+    "address_2": "Bermondsey",
+    "city": 1,
+    "postcode": "SE16 4AH",
+    "management_fee": 3,
+    "bring_your_own_bag": true,
+    "owner": 4,
+    "purchase_frequency_option": 2,
+    "coop_tag": [
+      1,
+      2
+    ],
+    "coop_members": [
+      4
+    ]
+  }
+},
+{
+  "model": "coopcreator.coop",
+  "pk": 13,
+  "fields": {
+    "coop_name": "dwdwe",
+    "coop_description": "fewewffwef",
+    "address_1": "ewffewwef",
+    "address_2": "efwfwefwefw",
+    "city": 1,
+    "postcode": null,
+    "management_fee": 2,
+    "bring_your_own_bag": true,
+    "owner": 4,
+    "purchase_frequency_option": null,
+    "coop_tag": [
+      2
+    ],
+    "coop_members": [
+      4
+    ]
+  }
+},
+{
+  "model": "coopcreator.coop",
+  "pk": 14,
+  "fields": {
+    "coop_name": null,
+    "coop_description": null,
+    "address_1": null,
+    "address_2": null,
+    "city": null,
+    "postcode": null,
+    "management_fee": null,
+    "bring_your_own_bag": true,
+    "owner": 4,
+    "purchase_frequency_option": null,
+    "coop_tag": [],
+    "coop_members": [
+      4
+    ]
+  }
+},
+{
+  "model": "coopcreator.coop",
+  "pk": 15,
+  "fields": {
+    "coop_name": "WOOOS COOP",
+    "coop_description": "A coop which prides it self in serving Hamza's, this one of a kind establishment is here to get you all you hamza needs. Stat.",
+    "address_1": "Tranton Road",
+    "address_2": "Bermondsey",
+    "city": 1,
+    "postcode": "SE16 4AH",
+    "management_fee": 3,
+    "bring_your_own_bag": true,
+    "owner": 9,
+    "purchase_frequency_option": 2,
+    "coop_tag": [
+      1,
+      2
+    ],
+    "coop_members": [
+      9
+    ]
+  }
+}
+]
